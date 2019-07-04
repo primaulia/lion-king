@@ -1,25 +1,20 @@
-# TODO
-# 0.)
-# Create a test for each the tasks below
-# Test should be written on animal_spec.rb
+require_relative 'lion'
+require_relative 'meerkat'
+require_relative 'warthog'
 
-# 1.)
-# Create `animal.rb`
-# Define an Animal class with an initialize(name) constructor, exposing its name
+# notice that i didn't need to require_relative 'animal' anymore
+# because ive required them on `lion.rb`, etc
+rafiki = Animal.new('rafiki')
+simba = Lion.new('Simba')
+nala = Lion.new('Nala')
+timon = Meerkat.new('Timon')
+pumba = Warthog.new('Pumba')
 
-# 2.)
-# Define three Lion, Meerkat and Warthog classes
-# and the relevant files
-# inherit Animal for these 3 new classes
+animals = [simba, nala, timon, pumba]
 
-# 3.)
-# implement a `#talk` instance method which returns a sentence like "Simba roars" for each animal. (Hint: Meerkats bark and Warthog grunt)
+# p rafiki
 
-# 4.)
-# implement a `::phyla` class method which will return an array of the four phyla of the animal kingdom.
-
-# 5.)
-# Add an #eat(food) instance method in Animal which
-# returns a sentence like "Timon eats a scorpion".
-# Then override this method *ONLY* for the Lion class,
-# and return a sentence like "Simba eats a gazelle. Law of the Jungle!"
+animals.each do |animal|
+  p animal.talk
+  p animal.eat('burgers')
+end
